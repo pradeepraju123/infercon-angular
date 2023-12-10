@@ -1,0 +1,23 @@
+<div class="container mt-5">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th style="width: 5%;">#</th>
+          <th style="width: 15%;">Title</th>
+          <th style="width: 75%;">Description</th>
+          <th style="width: 5%;"></th> <!-- Additional column for Edit button -->
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of servicesdata; let i = index">
+          <td style="width: 5%;">{{ i + 1 }}</td>
+          <td style="width: 15%;">{{ item.title }}</td>
+          <td style="width: 75%; height: 100px; overflow: hidden;">{{ item.description }}</td>
+          <td style="width: 5%;">
+            <button [routerLink]="['/app-edit-services', item._id]" class="btn btn-primary">Edit</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

@@ -1,0 +1,108 @@
+
+<section class="banner_section">
+    <div class="container new_container">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="banner_cont">
+                    <h5>BLOG</h5>
+                    <h2>Latest Blogs & News</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="blog_sector">
+    <div class="container new_container">
+      <h5>BLOG</h5>
+      <div class="row">
+        <div class="col-lg-6 col-8">
+          
+          <h3>Take a look at our latest articles & blogs</h3>
+        </div>
+        <div class="col-lg-6 col-4 blog_head_button">
+          <button type="submit" class="btn btn-primary">Read more</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="blog_card">
+            <ngx-skeleton-loader *ngIf="!contentLoaded" [theme]="{ width: '100%','border-radius': '20px',height: '175px','margin-bottom': '10px', background: '#e0e0e0'}"></ngx-skeleton-loader>
+            <div class="blog_card_content">
+              <ngx-skeleton-loader *ngIf="!contentLoaded" [theme]="{ width: '60%','border-radius': '0',height: '25px','margin-bottom': '10px', background: '#e0e0e0'}"></ngx-skeleton-loader>
+              <ngx-skeleton-loader *ngIf="!contentLoaded" [theme]="{ width: '100%','border-radius': '5px',height: '15px','margin-bottom': '10px', background: '#e0e0e0'}"></ngx-skeleton-loader>
+              <ngx-skeleton-loader *ngIf="!contentLoaded" [theme]="{ width: '100%','border-radius': '5px',height: '15px','margin-bottom': '10px', background: '#e0e0e0'}"></ngx-skeleton-loader>
+              <ngx-skeleton-loader *ngIf="!contentLoaded" [theme]="{ width: '100%','border-radius': '5px',height: '15px','margin-bottom': '10px', background: '#e0e0e0'}"></ngx-skeleton-loader>
+            </div>
+            <div class="row">
+              <div class="col-lg-2 col-3 hide">
+                <ngx-skeleton-loader *ngIf="!contentLoaded" [theme]="{ width: '60px','border-radius': '50%',height: '60px','margin-bottom': '10px', background: '#e0e0e0'}"></ngx-skeleton-loader>
+              </div>
+              <div class="col-lg-6 col-4 blog_date">
+                <ngx-skeleton-loader *ngIf="!contentLoaded" [theme]="{ width: '150px','border-radius': '0',height: '25px','margin-bottom': '10px', background: '#e0e0e0'}"></ngx-skeleton-loader>
+              </div>
+              <div class="col-lg-4 col-8">
+                <div class="button_box">
+                  <ngx-skeleton-loader *ngIf="!contentLoaded" [theme]="{ width: '120px','border-radius': '20px',height: '50px','margin-bottom': '10px', background: '#e0e0e0'}"></ngx-skeleton-loader>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="blog_card">
+            <ngx-skeleton-loader *ngIf="!contentLoaded" [theme]="{ width: '100%','border-radius': '20px',height: '175px','margin-bottom': '10px', background: '#e0e0e0'}"></ngx-skeleton-loader>
+            <div class="blog_card_content">
+              <ngx-skeleton-loader *ngIf="!contentLoaded" [theme]="{ width: '60%','border-radius': '0',height: '25px','margin-bottom': '10px', background: '#e0e0e0'}"></ngx-skeleton-loader>
+              <ngx-skeleton-loader *ngIf="!contentLoaded" [theme]="{ width: '100%','border-radius': '5px',height: '15px','margin-bottom': '10px', background: '#e0e0e0'}"></ngx-skeleton-loader>
+              <ngx-skeleton-loader *ngIf="!contentLoaded" [theme]="{ width: '100%','border-radius': '5px',height: '15px','margin-bottom': '10px', background: '#e0e0e0'}"></ngx-skeleton-loader>
+              <ngx-skeleton-loader *ngIf="!contentLoaded" [theme]="{ width: '100%','border-radius': '5px',height: '15px','margin-bottom': '10px', background: '#e0e0e0'}"></ngx-skeleton-loader>
+            </div>
+            <div class="row">
+              <div class="col-lg-2 col-3 hide">
+                <ngx-skeleton-loader *ngIf="!contentLoaded" [theme]="{ width: '60px','border-radius': '50%',height: '60px','margin-bottom': '10px', background: '#e0e0e0'}"></ngx-skeleton-loader>
+              </div>
+              <div class="col-lg-6 col-4 blog_date">
+                <ngx-skeleton-loader *ngIf="!contentLoaded" [theme]="{ width: '150px','border-radius': '0',height: '25px','margin-bottom': '10px', background: '#e0e0e0'}"></ngx-skeleton-loader>
+              </div>
+              <div class="col-lg-4 col-8">
+                <div class="button_box">
+                  <ngx-skeleton-loader *ngIf="!contentLoaded" [theme]="{ width: '120px','border-radius': '20px',height: '50px','margin-bottom': '10px', background: '#e0e0e0'}"></ngx-skeleton-loader>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6" *ngFor="let item of blogdata">
+          <div class="blog_card">
+            <div class="card-img_container">
+              <img [src]="item.image" alt="" class="card-img">
+            </div>
+            <div class="blog_card_content">
+              <h5>{{item.title}}</h5>
+              <p>{{item.short_description}}</p>
+            
+            </div>
+            <div class="row blog_foot">
+              <div class="col-lg-2 hide">
+                <img src="assets/1.png" alt="">
+              </div>
+              <div class="col-lg-6 col-4 blog_date">
+                <p>{{item.author}}</p>
+              </div>
+              <div class="col-lg-4 col-8 ">
+                <div class="button_box">
+                  <button *ngIf="contentLoaded" [routerLink]="['/app-blog-details', item._id]" class="btn btn-primary">Read more</button>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+<app-contactsection></app-contactsection>
+<app-footersection></app-footersection>

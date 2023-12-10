@@ -1,0 +1,47 @@
+/* service sector */
+.service_sector {
+    background-color: #F5F5F5;
+    padding: 30px;
+}
+.service_card {
+    padding: 20px;
+    margin: 10px 0px;
+    background-color: #EBEBEB;
+    border-radius: 20px;
+    height: 46vh;
+}
+.service_card:hover {
+    background-color: #181818;
+    color: #fff
+}
+.service_card img {
+    background-color: #EBEBEB;
+    height: 70px;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 20px;
+    object-fit: cover;
+}
+.service_header {
+    padding: 20px;
+}
+.new_container {
+    max-width: 1040px;
+}
+.service_header h5 {
+    background-color: #4EAF4E;
+    color: #fff;
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 30px;
+}
+.service_card img {
+    width: 70px;
+    object-fit: cover;
+}
+@media (max-width: 560px){
+    .service_card {
+        height: 51vh !important;
+    }
+
+}

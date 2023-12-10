@@ -1,0 +1,33 @@
+/* You can add global styles to this file, and also import other style files */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Raleway', sans-serif !important;
+  }
+
+h5 {
+  font-weight: 700 !important;
+  font-size: 20px !important;
+}
+h6 {
+  font-weight: 600 !important;
+  font-size: 1rem !important;
+}
+h2 {
+  font-weight: 800 !important;
+}
+h4 {
+ font-weight: 650 !important; 
+}
+@media (max-width: 560px){
+h2 {
+  font-weight: 700 !important;
+}
+}
+p {
+  font-size: 1rem !important;
+  line-height: 1.6;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

@@ -1,0 +1,37 @@
+<section class="banner_section">
+    <div class="container new_container">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="banner_cont">
+                    <h5>COURSES</h5>
+                    <h2>Training courses</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="list_image_sect">
+    <div class="container new_container animated-div" #animatedDiv [@slideIn]="contentLoaded ? 'visible' : 'hidden'">
+      <div class="row">
+        <div class="col-lg-12">
+            <div class="training_heading">
+                <h5 class="text-center">TRAINING</h5>
+            </div>
+        </div>
+        <div class="col-lg-4" *ngFor="let item of trainings">
+          <div class="list_images">
+            <img class="fixed-size-image" src="{{item.image}}" alt="">
+            <div class="list_image_content">
+              <h4>{{item.title}}</h4>
+              <p>{{item.short_description}}</p>
+              <div class="button_sect">
+                <button [routerLink]="['/app-training-detail', item._id]" class="btn btn-primary">View Training</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+<app-contactsection></app-contactsection>
+<app-footersection></app-footersection>

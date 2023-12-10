@@ -1,0 +1,45 @@
+<div class="container mt-5">
+  <div class="search">
+    <div class="title_field_card">
+      <mat-form-field class="example-full-width">
+        <mat-label>Search</mat-label>
+        <input matInput placeholder="Ex. CAE" value="Sushi" [(ngModel)]="searchTerm">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Enter a date range</mat-label>
+        <mat-date-range-input [rangePicker]="picker">
+          <input matStartDate placeholder="Start date" [(ngModel)]="startDate">
+          <input matEndDate placeholder="End date" [(ngModel)]="endDate">
+        </mat-date-range-input>
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-date-range-picker #picker></mat-date-range-picker>
+      </mat-form-field>
+      <button class="btn" (click)="search()">Search</button>
+     
+    </div>
+    
+  </div>
+    <table class="table table-bordered table-hover">
+      <thead class="thead-dark">
+        <tr>
+          <th style="width: 5%;">#</th>
+          <th style="width: 15%;">Title</th>
+          <th style="width: 60%;">Description</th>
+          <th style="width: 15%;">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of trainings; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ item.title }}</td>
+          <td style="max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">{{ item.description }}</td>
+          <td class="button_div">
+            <!-- <button [routerLink]="['/edit-training', item._id]" class="btn btn-primary btn-sm mr-2"><img src="assets/edit-2.png"></button> -->
+            <button *ngIf="contentLoaded" class="btn btn-primary" (click)="openDialog(item._id)"><img src="assets/edit-2.png"></button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  

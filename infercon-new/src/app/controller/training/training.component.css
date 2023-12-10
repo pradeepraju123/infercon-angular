@@ -1,0 +1,118 @@
+/*banner content*/
+.banner_section {
+    background-image: url('/assets/emerson_deltav.jpeg');
+    background-size: cover;
+    background-position: center;
+    padding: 20px;
+    height: 30vh;
+}
+.banner_cont {
+    margin-top: 15px;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 25px;
+}
+.new_container {
+    max-width: 1040px;
+}
+.training_cont img {
+    width: 100%;
+    
+}
+.training_cont{
+  padding: 20px;
+}
+
+.training_sect {
+    padding: 30px;
+}
+
+.image-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.hover-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0);
+  border-radius: 20px;
+  transition: background-color 0.4s ease-in-out;
+}
+
+.hover-text {
+  display: none;
+  position: absolute;
+  top: 80%;
+  left: 40%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  padding: 1px;
+  font-size: 14px;
+  transition: opacity 0.7s ease-in-out, transform 0.7s ease-in-out;
+}
+.hover-text p {
+  color: #e7e43b
+}
+
+.image-container:hover .hover-layer {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.image-container:hover .hover-text {
+  display: block;
+  opacity: 1;
+}
+/* list image section */
+.list_image_sect img {
+  width: 100%;
+}
+.list_images img {
+  height: 250px;
+  object-fit: cover;
+  border-radius: 15px;
+}
+.list_image_content {
+  padding: 20px 10px;
+}
+
+.list_image_sect {
+  overflow: hidden;
+  transition: opacity 0.5s; /* Smooth transition for opacity */
+}
+.button_sect button {
+  width: 100%;
+  background: None;
+  border: 2px solid #777;
+  color: #000
+}
+
+.button_sect button:hover {
+  width: 100%;
+  background: #5585b5;
+  border: 2px solid #5585b5;
+  color: #fff
+}
+.list_image_content p {
+  height: 125px;
+  overflow: hidden;
+}
+.list_image_sect h5 {
+  background-color: #FFCC4A;
+  color: #fff;
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 30px;
+}
+.training_heading {
+  text-align: center;
+  padding: 10px;
+}
+@media (max-width: 560px){
+.list_images {
+  padding: 20px;
+}
+}

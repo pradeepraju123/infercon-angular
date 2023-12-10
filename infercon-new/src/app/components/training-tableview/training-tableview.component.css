@@ -1,0 +1,45 @@
+tbody  button {
+    text-align: center;
+    background: none;
+    padding: 8px;
+    border: None;
+    transition: border-bottom 0.3s ease, transform 0.3s ease;
+}
+tbody button:hover {
+    color: #fff;
+    transform: scale(1.09); /* Zoom out effect */
+}
+.button_div {
+    text-align: center;
+}
+.button_sect {
+    padding: 20px;
+  }
+
+.search button {
+    background: none;
+    color: #000;
+    padding: 8px;
+    border-radius: 5px;
+    border: 2px solid #000;
+}
+.search button:hover {
+    background: rgb(58, 167, 244);
+    border: 2px solid rgb(58, 167, 244);
+    color: #fff;
+}
+
+.title_field_card {
+  display: flex;
+  flex-direction: row;
+  
+}
+.title_field_card button {
+  margin: 0px 0px 0px 20px;
+  width: 200px;
+  height: 56px;
+}
+.title_field_card mat-form-field {
+  padding-right: 15px;
+  width: 100%;
+}

@@ -1,0 +1,100 @@
+<section class="contact_sect">
+    <div class="container new_container">
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="contact_left">
+            <h5>PROCESS</h5>
+            <h2>Contact Us. It’s Easy.</h2>
+          </div>
+          <div class="row contact_left_box">
+            <div class="col-lg-2 col-3">
+              <img src="assets/call_icon.png" alt="">
+            </div>
+            <div class="col-lg-10 col-9">
+              Call Today
+              <h5>+91 88700 07 000</h5>
+            </div>  
+          </div>
+          <div class="row contact_left_box">
+            <div class="col-lg-2 col-3">
+              <img src="assets/time_icon.png" alt="">
+            </div>
+            <div class="col-lg-10 col-9">
+              Monday To Saturday
+              <h5>9AM - 6PM</h5>
+            </div>  
+          </div>
+          <div class="row contact_left_box">
+            <div class="col-lg-2 col-3">
+              <img src="assets/location_icon.png" alt="">
+            </div>
+            <div class="col-lg-10 col-9">
+              Office
+              <h5>11/8, 4th cross st, jai nagar,
+                Arumbakkam, chennai
+                </h5>
+            </div>  
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="form_contact">
+            <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+              <div class="row">
+                <div class="col-lg-12">
+                  <mat-form-field class="example-full-width"  appearance="outline">
+                    <mat-label>Name</mat-label>
+                    <input matInput class="form-control"  formControlName="fullname" type="text" placeholder="Ex. John doe">
+                  </mat-form-field>
+                </div>
+                <div class="col-lg-12">
+                  <mat-form-field class="example-full-width"  appearance="outline">
+                    <mat-label>Email</mat-label>
+                    <input type="text" formControlName="email" matInput placeholder="Ex. johndoe@gmail.com">
+                  </mat-form-field>
+                </div>
+                  <div class="col-lg-6">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                      <mat-label>Select country</mat-label>
+                      <div class="phone-container">
+                        <mat-select formControlName="country" required>
+                          <mat-option *ngFor="let country of countries" [value]="country.dial_code">
+                            {{ country.name }}
+                          </mat-option>
+                        </mat-select>
+                      </div>
+                      <mat-error *ngIf="contactForm.get('country')?.hasError('required')">
+                        Country is required
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+                  <div class="col-lg-6">
+                    <mat-form-field class="example-full-width"  appearance="outline">
+                      <mat-label>Phone number</mat-label>
+                      <input type="text" formControlName="phone" matInput placeholder="Ex. 9893239893">
+                    </mat-form-field>
+                  </div>
+                <div class="col-lg-12">
+                  <mat-form-field appearance="outline">
+                    <mat-label>Courses</mat-label>
+                    <mat-select formControlName="courses" multiple>
+                      <mat-option *ngFor="let course of courses" [value]="course.value">
+                        {{ course.label }}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+              <div class="col-lg-12">
+                <mat-form-field class="example-full-width"  appearance="outline">
+                  <mat-label>Leave a comment</mat-label>
+                  <textarea matInput formControlName="message" placeholder="Ex. some comments..."></textarea>
+                </mat-form-field>
+              </div>
+              </div>
+              <button type="submit" class="btn btn-primary">Send message</button>
+            </form>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </section>

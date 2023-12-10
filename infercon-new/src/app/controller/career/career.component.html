@@ -1,0 +1,78 @@
+<section class="banner_section">
+    <div class="container new_container">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="banner_cont">
+                    <h5>Career</h5>
+                    <h2>Feel Free To Reach Us</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="careers_cont">
+    <div class="container new_container">
+        <div class="text-center careers_heading">
+            <h5>CAREERS</h5>
+          </div>
+        <div class="form_career">
+            <div class="alert alert-success" role="alert" *ngIf="successMessage">
+                {{ successMessage }}
+              </div>
+              <div class="alert alert-danger" role="alert" *ngIf="errorMessage">
+                {{ errorMessage }}
+              </div>
+            <form (ngSubmit)="onSubmit()">
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="mb-3 form_control">
+                    <label for="fullName" class="form-label">Full name</label>
+                    <input type="text" class="form-control" id="fullName" [(ngModel)]="careerdata.fullname" name="fullName" required>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="mb-3 form_control">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" [(ngModel)]="careerdata.email" name="email" required>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="mb-3 form_control">
+                    <label for="phone" class="form-label">Phone</label>
+                    <input type="text" class="form-control" id="phone" [(ngModel)]="careerdata.phone" name="phone" required>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="mb-3 form_control">
+                    <label for="position" class="form-label">Position Applying For</label>
+                    <input type="text" class="form-control" id="position" [(ngModel)]="careerdata.position" name="position" required>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <label for="document">Upload resume</label>
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" name="myFile" (change)="fileEvent($event)" accept=".pdf, .doc, .docx" id="customFile">
+                            <label class="custom-file-label" for="customFile">Choose file</label>
+                        </div>
+                    </div>
+                </div>                
+                <!-- <div class="col-lg-12">
+                  <div class="mb-3 form_control">
+                    <label for="resume" class="form-label">Upload Resume</label>
+                    <input type="file" class="form-control" id="resume" name="resume" accept=".pdf, .doc, .docx" required>
+                  </div>
+                </div> -->
+                <div class="col-lg-12">
+                  <div class="mb-3 form_control">
+                    <label for="coverLetter" class="form-label">Cover Letter</label>
+                    <textarea class="form-control" id="coverLetter" [(ngModel)]="careerdata.coverletter" name="coverLetter" rows="3" required></textarea>
+                  </div>
+                </div>
+              </div>
+              <button type="submit" class="form_contact btn btn-primary">Submit Application</button>
+            </form>
+          </div>
+    </div>
+</section>
+<app-footersection></app-footersection>

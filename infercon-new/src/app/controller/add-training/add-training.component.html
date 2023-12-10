@@ -1,0 +1,122 @@
+<!-- edit-training.component.html -->
+<h1 mat-dialog-title>Add Training</h1>
+<form [formGroup]="trainingForm" (submit)="onSubmit()"><mat-dialog-content class="mat-typography">
+<div class="container mt-4">
+      <div class="row">
+        <!-- First Column -->
+        <div class="col-sm-6">
+          <!-- Title -->
+          <div class="mb-3 title_field">
+            <label class="form-label">Title:</label>
+            <input class="form-control" formControlName="title" type="text" placeholder="Title">
+          </div>
+  
+          <!-- Short Description -->
+          <div class="mb-3 title_field">
+            <label class="form-label">Short Description:</label>
+            <textarea class="form-control" formControlName="short_description" placeholder="Short Description"></textarea>
+          </div>
+  
+          <!-- Description -->
+          <div class="mb-3 title_field">
+            <label class="form-label">Description:</label>
+            <textarea class="form-control" formControlName="description" placeholder="Description"></textarea>
+          </div>
+  
+          <!-- Published Toggle -->
+          <div class="mb-3 ">
+            <label class="form-label">Published:</label>
+            <div class="custom-switch">
+              <div class="switch-toggle" [ngClass]="{'green': trainingForm.get('published')?.value, 'blue': !trainingForm.get('published')?.value}" [@toggleAnimation]="trainingForm.get('published')?.value" (click)="toggleSwitch()">
+                <input type="checkbox" class="custom-control-input" formControlName="published" style="display: none;">
+                <span class="toggle-handle"></span>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+  
+        <!-- Second Column -->
+        <div class="col-sm-6">
+          <!-- Image Upload -->
+          <label class="form-label">Image:</label>
+          <div class="row">
+            <div class="col-sm-6">
+              <input class="form-control" type="file" (change)="fileEvent($event)" accept="image/*">
+            </div>
+            <div class="col-sm-6 image_cont">
+              <img *ngIf="imagePreview" [src]="imagePreview" alt="Image Preview" class="mt-2">
+            </div>
+          </div>
+  
+          <!-- Event Details Section -->
+          <div class="mb-3">
+            <label class="form-label">Event Details:</label>
+            <div formArrayName="event_details">
+              <div *ngFor="let event of eventDetails.controls; let i = index" [formGroupName]="i">
+                <!-- Event Title and Detail Inputs -->
+                <div class="row">
+                  <div class="col-sm-5 title_field">
+                    <input class="form-control" formControlName="title" type="text" placeholder="Event Title" [value]="event.value.title">
+                  </div>
+                  <div class="col-sm-5 title_field">
+                    <input class="form-control" formControlName="detail" type="text" placeholder="Event Detail" [value]="event.value.detail">
+                  </div>
+                  <div class="col-sm-2">
+                    <button type="button" (click)="removeEventDetail(i)" class="btn">
+                      <span class="plus-minus-button">-</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Add Event Detail Button -->
+            <button type="button" (click)="addEventDetail()" class="btn btn-primary mt-2">Add</button>
+          </div>
+  
+          <!-- Systems Used Section -->
+          <div class="mb-3">
+            <label class="form-label">Systems Used:</label>
+            <div formArrayName="systems_used">
+              <div *ngFor="let system of systemsUsed.controls; let i = index" [formGroupName]="i">
+                <!-- System Title and Detail Inputs -->
+                <div class="row">
+                  <div class="col-sm-5 title_field">
+                    <input class="form-control" formControlName="title" type="text" placeholder="System Title" [value]="system.value.title">
+                  </div>
+                  <div class="col-sm-5 title_field">
+                    <input class="form-control" formControlName="detail" type="text" placeholder="System Detail" [value]="system.value.detail">
+                  </div>
+                  <div class="col-sm-2">
+                    <button type="button" (click)="removeSystemUsed(i)" class="btn">
+                      <span class="plus-minus-button">-</span>
+                    </button>
+                  </div>
+                </div>
+                <!-- Remove Button -->
+                <div class="row">
+                  <div class="col-sm-12">
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Add System Used Button -->
+            <button type="button" (click)="addSystemUsed()" class="btn btn-primary mt-2">Add</button>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Submit Button -->
+      <div class="row">
+        <div class="col-sm-12 py-5">
+          <button type="submit" class="btn btn-success">Submit</button>
+        </div>
+      </div>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button cdkFocusInitial type="submit">Submit</button>
+</mat-dialog-actions>
+</form>

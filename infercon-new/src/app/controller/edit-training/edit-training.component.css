@@ -1,0 +1,160 @@
+.new_container {
+  max-width: 1040px;
+}
+.edit_image img {
+    width: 100%;
+}
+.custom-switch {
+    position: relative;
+    width: 73px;
+    border-radius: 10px;
+    padding: 5px;
+    height: 38px;
+    background: #a6ccf7;
+  }
+  
+  .custom-switch .custom-control-label {
+    display: none;
+  }
+  
+  .custom-switch input[type="checkbox"] {
+    display: none;
+  }
+  
+  .switch-toggle {
+    position: absolute;
+    width: 30px; /* Half the width of the switch */
+    height: 30px; /* Should match the height of the switch */
+    background-color: #3498db; /* Change the background color as needed */
+    border-radius: 15px; /* Half of the height to make it circular */
+    transition: all 0.3s; /* Add a smooth transition */
+  }
+  
+  .custom-switch input[type="checkbox"]:checked + .switch-toggle {
+    transform: translateX(30px); /* Move the toggle to the right */
+  }
+  .green {
+    background-color: green;
+  }
+  
+  .blue {
+    background-color: blue;
+  }
+  .published_bool {
+    padding: 20px 5px;
+  }
+  .goback_icon button {
+    background: none;
+    border: None;
+    padding: 0;
+    margin: 0;
+  }
+.goback_icon {
+    display: flex;
+    flex-direction: row;
+}
+.goback_icon h2 {
+    padding: 20px 10px;
+}
+input[type="file"] {
+    position: relative;
+  }
+  
+  input[type="file"]::file-selector-button {
+    width: 136px;
+    color: transparent;
+  }
+  
+  /* Faked label styles and icon */
+  input[type="file"]::before {
+    position: absolute;
+    pointer-events: none;
+    top: 10px;
+    left: 16px;
+    height: 20px;
+    width: 20px;
+    content: "";
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%230964B0'%3E%3Cpath d='M18 15v3H6v-3H4v3c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2v-3h-2zM7 9l1.41 1.41L11 7.83V16h2V7.83l2.59 2.58L17 9l-5-5-5 5z'/%3E%3C/svg%3E");
+  }
+  
+  input[type="file"]::after {
+    position: absolute;
+    pointer-events: none;
+    top: 11px;
+    left: 40px;
+    color: #0964b0;
+    content: "Upload File";
+  }
+  
+  /* ------- From Step 1 ------- */
+  
+  /* file upload button */
+  input[type="file"]::file-selector-button {
+    border-radius: 4px;
+    padding: 0 16px;
+    height: 40px;
+    cursor: pointer;
+    background-color: white;
+    border: 1px solid rgba(0, 0, 0, 0.16);
+    box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.05);
+    margin-right: 16px;
+    transition: background-color 200ms;
+  }
+  
+  /* file upload button hover state */
+  input[type="file"]::file-selector-button:hover {
+    background-color: #f3f4f6;
+  }
+  
+  /* file upload button active state */
+  input[type="file"]::file-selector-button:active {
+    background-color: #e5e7eb;
+  }
+  label {
+    padding: 10px;
+  }
+
+/* Add this to your existing styles */
+.plus-minus-button {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  line-height: 20px;
+  border: 1px solid #060606;
+  color: #070707;
+  border-radius: 50%;
+  font-weight: bold;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.plus-minus-button:hover {
+  background-color: rgba(251, 26, 75, 0.611);
+  color: #f6f8f9;
+  border: none
+}
+
+.image_cont img {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+}
+.title_field input[type=text],
+.title_field textarea {
+  padding: 15px;
+  border: none;
+  border-radius: 0;
+  border-bottom: 1px solid rgba(25, 24, 24, 0.347);
+  transition: border-bottom 0.3s ease, transform 0.3s ease;
+}
+
+.title_field input[type=text]:focus,
+.title_field textarea:focus {
+  /* Add styles for when the input is in focus (clicked) */
+  box-shadow: none;
+  border: none;
+  border-radius: 0;
+  border-bottom: 1px solid rgb(25, 24, 24);
+  transform: scale(1.02); /* Zoom out effect */
+}

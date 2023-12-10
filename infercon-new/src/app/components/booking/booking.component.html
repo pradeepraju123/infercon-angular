@@ -1,0 +1,63 @@
+<h2 mat-dialog-title>Booking</h2>
+<form class="example-form" [formGroup]="bookingForm" (ngSubmit)="onSubmit()">
+<mat-dialog-content class="mat-typography">
+<div class="container">
+   
+        <mat-form-field class="example-full-width"  appearance="outline">
+          <mat-label>Name</mat-label>
+          <input matInput class="form-control"  formControlName="fullname" type="text" placeholder="Ex. John doe">
+        </mat-form-field>
+        <mat-form-field class="example-full-width"  appearance="outline">
+            <mat-label>Email</mat-label>
+            <input type="text" formControlName="email" matInput placeholder="Ex. johndoe@gmail.com">
+          </mat-form-field>
+        <div class="row">
+          <div class="col-6">
+            <mat-form-field class="example-full-width" appearance="outline">
+              <mat-label>Select country</mat-label>
+              <div class="phone-container">
+                <mat-select formControlName="country" required>
+                  <mat-option *ngFor="let country of countries" [value]="country.dial_code">
+                    {{ country.name }}
+                  </mat-option>
+                </mat-select>
+              </div>
+              <mat-error *ngIf="bookingForm.get('country')?.hasError('required')">
+                Country is required
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col-6">
+            <mat-form-field class="example-full-width"  appearance="outline">
+              <mat-label>Phone number</mat-label>
+              <input type="tel" formControlName="phone" matInput placeholder="Ex. 9893239893">
+            </mat-form-field>
+          </div>
+            <div class="col-6">
+                <mat-form-field class="example-full-width"  appearance="outline">
+                    <mat-label>Select time</mat-label>
+                    <input type="time" formControlName="time" matInput >
+                  </mat-form-field>
+            </div>
+            <div class="col-6">
+                <mat-form-field class="date_picker" appearance="outline">
+                    <mat-label>Choose a date</mat-label>
+                    <input formControlName="date" matInput [matDatepicker]="picker">
+                    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                  </mat-form-field>
+            </div>
+        </div>
+        <mat-form-field class="example-full-width"  appearance="outline">
+          <mat-label>Leave a comment</mat-label>
+          <textarea matInput formControlName="message" placeholder="Ex. some comments..."></textarea>
+        </mat-form-field>
+      
+
+</div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button cdkFocusInitial type="submit">Submit</button>
+</mat-dialog-actions>
+</form>

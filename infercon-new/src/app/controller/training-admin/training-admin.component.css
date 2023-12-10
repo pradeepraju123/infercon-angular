@@ -1,0 +1,28 @@
+
+.button_toggle {
+    float: right;
+    padding: 30px;
+}
+.title_training_sect {
+    padding: 30px;
+}
+.button_toggle img {
+    width: 100%;
+    width: 30px;
+}
+.button_toggle button:nth-child(2) {
+    margin: 10px;
+    background: None;
+    border: None;
+}
+.button_toggle button:nth-child(1) {
+    background: none;
+    color: #000;
+    padding: 8px;
+    border: 2px solid #000;
+}
+.button_toggle button:nth-child(1):hover {
+    background: rgb(58, 167, 244);
+    border: 2px solid rgb(58, 167, 244);
+    color: #fff;
+}

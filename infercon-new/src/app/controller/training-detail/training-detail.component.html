@@ -1,0 +1,65 @@
+<section class="banner_section">
+    <div class="container new_container">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="banner_cont">
+                    <h5>COURSES</h5>
+                    <h2>Training courses</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="training_details_sect">
+    <div class="container new_container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="training_cont">
+                    <div *ngIf="training">
+                        <h2>{{ training.title }}</h2>
+                        <!-- <p>{{ training.short_description }}</p> -->
+                        <p>{{ training.description }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div *ngIf="training" class="training_img">
+                    <img src="{{training.image}}" alt="">
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div *ngIf="training.event_details && training.event_details.length">
+                    <h4 class="text-center">Event Details</h4>
+                    <div class="card-group">
+                        <div class="card event-card" *ngFor="let eventDetail of training.event_details">
+                            <div class="card-body">
+                                <h5 class="card-title text-center">{{ eventDetail.title }}</h5>
+                                <p class="card-text text-center">{{ eventDetail.detail }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div *ngIf="training.systems_used && training.systems_used.length">
+                    <h4 class="text-center" style="padding: 10px;">Systems Used</h4>
+                    <div class="list-group systems-list">
+                        <mat-card>
+                            <div *ngFor="let systemUsed of training.systems_used">
+                                <mat-card-content>{{ systemUsed.title }}: {{ systemUsed.detail }}</mat-card-content>
+                                </div>
+                              </mat-card>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="training_cont">
+                    <div *ngIf="!training">
+                        <p>Loading...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<app-contactsection></app-contactsection>
+<app-footersection></app-footersection>

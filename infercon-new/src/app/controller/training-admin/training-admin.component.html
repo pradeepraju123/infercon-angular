@@ -1,0 +1,31 @@
+<section class="service_admin_sect">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="title_training_sect">
+            <h3>Training list</h3>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="button_toggle">
+            <button class="btn btn-primary" mat-button (click)="openDialog()">Create Training</button>
+            <button (click)="toggleView()">
+              <img [src]="isCardView ? 'assets/icon-list.png' : 'assets/icon-grid.png'" alt="Toggle View Icon">
+            </button>
+          </div>
+        </div>      
+        <div class="col-lg-12">
+          <div *ngIf="!isCardView">
+            <app-trainingtable-view></app-trainingtable-view>
+          </div>
+          <div *ngIf="isCardView">
+            <app-trainingcard-view></app-trainingcard-view>
+          </div>
+        </div>
+        <div class="col-lg-12">
+         
+        </div>
+      </div>
+    </div>
+  </section>
+  

@@ -1,0 +1,137 @@
+<!-- edit-training.component.html -->
+
+<div class="container mt-4">
+    <div class="goback_icon">
+      <button class="btn btn-secondary" (click)="goBack()"><img src="assets/icon-back.png"></button>
+      <h2>Edit Services</h2>
+    </div>
+  
+    <!-- Success and Error Messages -->
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="alert alert-success" role="alert" *ngIf="successMessage">
+          {{ successMessage }}
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="alert alert-danger" role="alert" *ngIf="errorMessage">
+          {{ errorMessage }}
+        </div>
+      </div>
+    </div>
+  
+    <!-- Form -->
+    <form [formGroup]="serviceForm" (ngSubmit)="onSubmit()">
+      <div class="row">
+        <!-- First Column -->
+        <div class="col-sm-6">
+          <!-- Title -->
+          <div class="mb-3 title_field">
+            <label class="form-label">Title:</label>
+            <input class="form-control" formControlName="title" type="text" placeholder="Title">
+          </div>
+  
+          <!-- Short Description -->
+          <div class="mb-3 title_field">
+            <label class="form-label">Short Description:</label>
+            <textarea class="form-control" formControlName="short_description" placeholder="Short Description"></textarea>
+          </div>
+  
+          <!-- Description -->
+          <div class="mb-3 title_field">
+            <label class="form-label">Description:</label>
+            <textarea class="form-control" formControlName="description" rows="5" placeholder="Description"></textarea>
+          </div>
+  
+          <!-- Published Toggle -->
+          <div class="mb-3 ">
+            <label class="form-label">Published:</label>
+            <div class="custom-switch">
+              <div class="switch-toggle" [ngClass]="{'green': serviceForm.get('published')?.value, 'blue': !serviceForm.get('published')?.value}" [@toggleAnimation]="serviceForm.get('published')?.value" (click)="toggleSwitch()">
+                <input type="checkbox" class="custom-control-input" formControlName="published" style="display: none;">
+                <span class="toggle-handle"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Second Column -->
+        <div class="col-sm-6">
+          <!-- Image Upload -->
+          <label class="form-label">Image:</label>
+          <div class="row">
+            <div class="col-sm-6">
+              <input class="form-control" type="file" (change)="fileEvent($event)" accept="image/*">
+            </div>
+            <div class="col-sm-6 image_cont">
+              <img *ngIf="imagePreview" [src]="imagePreview" alt="Image Preview" class="mt-2">
+            </div>
+          </div>
+  
+          <!-- Event Details Section -->
+          <div class="mb-3">
+            <label class="form-label">Comments:</label>
+            <div formArrayName="comments">
+              <div *ngFor="let comment of comments.controls; let i = index" [formGroupName]="i">
+                <!-- Event Title and Detail Inputs -->
+                <div class="row">
+                  <div class="col-sm-5 title_field">
+                    <input class="form-control" formControlName="question" type="text" placeholder="Comments Title" [value]="comment.value.question">
+                  </div>
+                  <div class="col-sm-5 title_field">
+                    <input class="form-control" formControlName="answer" type="text" placeholder="Comments Detail" [value]="comment.value.answer">
+                  </div>
+                  <div class="col-sm-2">
+                    <button type="button" (click)="removecomments(i)" class="btn">
+                      <span class="plus-minus-button">-</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Add Event Detail Button -->
+            <button type="button" (click)="addcomments()" class="btn btn-primary mt-2">Add</button>
+          </div>
+  
+          <!-- Systems Used Section -->
+          <div class="mb-3">
+            <label class="form-label">Question and answer:</label>
+            <div formArrayName="questions_and_answers">
+              <div *ngFor="let each_qa of questions_and_answers.controls; let i = index" [formGroupName]="i">
+                <!-- System Title and Detail Inputs -->
+                <div class="row">
+                  <div class="col-sm-5 title_field">
+                    <input class="form-control" formControlName="question" type="text" placeholder="Question" [value]="each_qa.value.question">
+                  </div>
+                  <div class="col-sm-5 title_field">
+                    <input class="form-control" formControlName="answer" type="text" placeholder="Answer" [value]="each_qa.value.answer">
+                  </div>
+                  <div class="col-sm-2">
+                    <button type="button" (click)="removeQuestionAndAnswer(i)" class="btn">
+                      <span class="plus-minus-button">-</span>
+                    </button>
+                  </div>
+                </div>
+                <!-- Remove Button -->
+                <div class="row">
+                  <div class="col-sm-12">
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Add System Used Button -->
+            <button type="button" (click)="addQuestionAndAnswer()" class="btn btn-primary mt-2">Add</button>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Submit Button -->
+      <div class="row">
+        <div class="col-sm-12">
+          <button type="submit" class="btn btn-success">Submit</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  

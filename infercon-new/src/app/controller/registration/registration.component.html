@@ -1,0 +1,255 @@
+<section class="banner_section">
+    <div class="container new_container">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="banner_cont">
+                    <h5>Registration</h5>
+                    <h2>Feel Free To Reach Us</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section>
+    <div class="container new_container">
+        <div class="text-center careers_heading">
+            <h5>REGISTRATION</h5>
+        </div>
+        
+        <div class="form_registration">
+            <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+              <div class="row">
+                <div class="col-lg-5" >
+                  <div class="mb-3 form_control"style="display: flex;">
+                    <label for="modeOfEducation" class="form-label">Mode of Education</label>
+                    <div>
+                      <mat-radio-group formControlName="modeOfEducation">
+                        <mat-radio-button class="example-margin" value="online">
+                          Online
+                        </mat-radio-button>
+                        <mat-radio-button class="example-margin" value="offline">
+                          Offline
+                        </mat-radio-button>
+                      </mat-radio-group>
+                    </div>
+                  </div>
+                </div>
+              <div class="col-7">
+                <div class="mb-3 form_control">
+                  <mat-form-field appearance="outline">
+                    <mat-label>Courses</mat-label>
+                    <mat-select formControlName="courses" multiple>
+                      <mat-option *ngFor="let course of courses" [value]="course.value">
+                        {{ course.label }}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+              </div>
+
+              
+                <div class="col-lg-4">
+                  <div class="mb-3 form_control">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                      <mat-label>First Name</mat-label>
+                      <input type="text" matInput placeholder="Ex. John" formControlName="firstname" name="firstname" required>
+                    </mat-form-field>
+                  </div>
+                </div>
+                <div class="col-lg-4">
+                  <div class="mb-3 form_control">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                      <mat-label>Middle Name</mat-label>
+                      <input type="text" matInput placeholder="Ex. Doe" formControlName="middlename" name="middlename">
+                    </mat-form-field>
+                  </div>
+                </div>
+                <div class="col-lg-4">
+                  <div class="mb-3 form_control">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                      <mat-label>Last name</mat-label>
+                      <input type="text" matInput placeholder="Ex. R" formControlName="lastname" name="lastname" required>
+                    </mat-form-field>
+                  </div>
+                </div>
+                <div class="col-lg-4">
+                  <div class="mb-3 form_control">
+                    <mat-form-field appearance="outline">
+                      <mat-label>Date of Birth</mat-label>
+                      <input type="text" matInput formControlName="bday" [matDatepicker]="picker"  name="bday">
+                      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                      <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+                  </div>
+                </div>
+                <div class="col-lg-4">
+                  <div class="mb-3 form_control" style="display: flex;">
+                    <label for="gender" class="form-label">Gender</label>
+                    <div>
+                      <mat-radio-group formControlName="gender">
+                        <mat-radio-button class="example-margin" value="Male">
+                          Male
+                        </mat-radio-button>
+                        <mat-radio-button class="example-margin" value="Female">
+                          Female
+                        </mat-radio-button>
+                      </mat-radio-group>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-4">
+                  <div class="mb-3 form_control">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                      <mat-label>Email</mat-label>
+                      <input type="email" matInput formControlName="email" name="email"
+                             placeholder="Ex. pat@example.com">
+                    </mat-form-field>
+                  </div>
+                </div>
+                <div class="col-lg-12">
+                  <div class="mb-3 form_control">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                      <mat-label>Address</mat-label>
+                      <textarea matInput placeholder="Ex. No.11, 12th cross st..." formControlName="address" name="address" required></textarea>
+                    </mat-form-field>
+                  </div>
+                </div>
+                <div class="col-3">
+                  <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Select country</mat-label>
+                    <div class="phone-container">
+                      <mat-select formControlName="country" required>
+                        <mat-option *ngFor="let country of countries" [value]="country.dial_code">
+                          {{ country.name }}
+                        </mat-option>
+                      </mat-select>
+                    </div>
+                    <mat-error *ngIf="registrationForm.get('country')?.hasError('required')">
+                      Country is required
+                    </mat-error>
+                  </mat-form-field>
+                </div>
+                <div class="col-lg-3">
+                  <div class="mb-3 form_control">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                      <mat-label>Mobile</mat-label>
+                      <input type="text" matInput formControlName="mobile" name="mobile"
+                             placeholder="Ex. 7123124343" required>
+                    </mat-form-field>
+                  </div>
+                </div>
+                <div class="col-lg-3">
+                  <div class="mb-3 form_control">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                      <mat-label>Additional Mobile</mat-label>
+                      <input type="text" matInput formControlName="additionalMobile" name="additionalMobile"
+                             placeholder="Ex. 7123124343" required>
+                    </mat-form-field>
+                  </div>
+                </div>
+                <div class="col-lg-3">
+                  <div class="mb-3 form_control">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                      <mat-label>Work Mobile</mat-label>
+                      <input type="text" matInput formControlName="workMobile" name="workMobile"
+                             placeholder="Ex. 7123124343" required>
+                    </mat-form-field>
+                  </div>
+                </div>
+                <div class="col-lg-4">
+                  <div class="mb-3 form_control">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                      <mat-label>Company</mat-label>
+                      <input type="text" matInput formControlName="company" name="company"
+                             placeholder="Ex. Infercon Automation" required>
+                    </mat-form-field>
+                  </div>
+                </div>
+                <div class="col-lg-4">
+                  <div class="mb-3 form_control">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                      <mat-label>Fees Currency</mat-label>
+                      <input type="text" matInput formControlName="feesCurrency" name="feesCurrency"
+                             placeholder="Ex. 120000" required>
+                    </mat-form-field>
+                  </div>
+                </div>
+                <div class="col-lg-4">
+                  <div class="mb-3 form_control">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                      <mat-label>Education</mat-label>
+                      <input type="text" matInput formControlName="education" name="education"
+                             placeholder="Ex. Bachelor of Engg.." required>
+                    </mat-form-field>
+                  </div>
+                </div>
+                <div class="col-lg-12">
+                  <div class="mb-3 form_control">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                      <mat-label>Comments</mat-label>
+                      <textarea matInput placeholder="Ex. Comments.." formControlName="comments" name="comments" required></textarea>
+                    </mat-form-field>
+                  </div>
+                </div>
+              
+                <div class="col-lg-4">
+                  <div class="mb-3 form_control">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                      <mat-label>Industry Experience</mat-label>
+                      <input type="text" matInput formControlName="industryexp" name="industryexp"
+                             placeholder="Ex. 12 years.." required>
+                    </mat-form-field>
+                  </div>
+                </div>
+                <div class="col-lg-4">
+                  <div class="mb-3 form_control">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                      <mat-label>Years of Experience</mat-label>
+                      <input type="text" matInput formControlName="yearsOfExp" name="yearsOfExp"
+                             placeholder="Ex. 12 years.." required>
+                    </mat-form-field>
+                  </div>
+                </div>
+                <div class="col-lg-4">
+                  <div class="mb-3 form_control">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                      <mat-label>Government ID</mat-label>
+                      <input type="text" matInput formControlName="governmentId" name="governmentId"
+                             placeholder="Ex. 122EF4342" required>
+                    </mat-form-field>
+                  </div>
+                </div>
+                <div class="col-lg-4">
+                  <div class="mb-3 form_control">
+                    <label for="currencyType" class="form-label">Currency Type</label>
+                    <div>
+                      <mat-radio-group formControlName="currencyType">
+                        <mat-radio-button class="example-margin" value="USD">
+                          USD
+                        </mat-radio-button>
+                        <mat-radio-button class="example-margin" value="INR">
+                          INR
+                        </mat-radio-button>
+                        <mat-radio-button class="example-margin" value="EUR">
+                          EUR
+                        </mat-radio-button>
+                      </mat-radio-group>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-4">
+                  <div class="mb-3 form_control">
+                    <label for="file" class="form-label">Upload File</label>
+                    <input type="file" class="custom-file-input" name="myFile" (change)="fileEvent($event)" accept=".pdf, .doc, .docx" id="customFile" required>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary">Submit Registration</button>
+            </form>
+          </div>
+          
+    </div>
+</section>
+<app-footersection></app-footersection>
