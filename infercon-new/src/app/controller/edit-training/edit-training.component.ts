@@ -158,6 +158,9 @@ export class EditTrainingComponent implements OnInit {
   createTrainingFormGroup(): FormGroup {
     return this.fb.group({
       title: [this.trainingForm.value.title, Validators.required],
+      meta_title: [this.trainingForm.value.meta_title, Validators.required],
+      keywords: [this.trainingForm.value.keywords, Validators.required],
+      meta_description: [this.trainingForm.value.meta_description, Validators.required],
       short_description: [this.trainingForm.value.short_description],
       description: [this.trainingForm.value.description],
       published: [this.trainingForm.value.published],
@@ -182,6 +185,9 @@ export class EditTrainingComponent implements OnInit {
   initializeForm() {
     this.trainingForm = this.fb.group({
       title: ['', Validators.required],
+      meta_title: ['', Validators.required],
+      keywords: ['', Validators.required],
+      meta_description: ['', Validators.required],
       short_description: [''],
       description: [''],
       published: [false],
@@ -231,6 +237,9 @@ export class EditTrainingComponent implements OnInit {
         // Populate the static form controls
         this.trainingForm.patchValue({
           title: trainingDetails.title,
+          meta_title:trainingDetails.meta_title,
+          keywords: trainingDetails.keywords,
+          meta_description: trainingDetails.meta_description,
           short_description: trainingDetails.short_description,
           description: trainingDetails.description,
           published: trainingDetails.published,
