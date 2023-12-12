@@ -8,7 +8,7 @@ import { Observable, throwError } from 'rxjs';
 export class BookingService {
 
  
-  private apiUrl = 'http://api.inferconautomation.online/api/v1/booking';
+  private apiUrl = 'https://api.inferconautomation.online/api/v1/booking';
 
   constructor(
     private http: HttpClient

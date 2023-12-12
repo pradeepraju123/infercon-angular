@@ -9,7 +9,7 @@ import { map } from 'rxjs/operators';
 })
 export class BlogService {
 
-  private apiUrl = 'http://api.inferconautomation.online/api/v1/blogs';
+  private apiUrl = 'https://api.inferconautomation.online/api/v1/blogs';
 
   constructor(
     private http: HttpClient,
@@ -24,7 +24,7 @@ getAllblogstest(limit: number): Observable<any> {
       return this.http.get(url);
     }
 getBlogdetail(_id: string): Observable<any> {
-      const url = `http://api.inferconautomation.online/api/v1/blogs/${_id}`;
+      const url = `https://api.inferconautomation.online/api/v1/blogs/${_id}`;
       return this.http.get(url).pipe(
         map((response: any) => response.data) // Extract the 'data' property from the response
       );

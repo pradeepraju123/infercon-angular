@@ -8,7 +8,7 @@ import { AuthService } from './auth.service';
 })
 export class ContactService {
 
-  private apiUrl = 'http://api.inferconautomation.online/api/v1/contact';
+  private apiUrl = 'https://api.inferconautomation.online/api/v1/contact';
 
   constructor(
     private http: HttpClient
