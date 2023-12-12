@@ -10,7 +10,7 @@ import { map } from 'rxjs/operators';
 export class TrainingService {
 
   
-  private apiUrl = 'http://127.0.0.1:8080/api/v1/trainings';
+  private apiUrl = 'https://api.inferconautomation.online/api/v1/trainings';
 
   constructor(
     private http: HttpClient,
@@ -24,7 +24,7 @@ export class TrainingService {
     return this.http.post(`${this.apiUrl}/all`, data);
   }
 getTraining(_id: string): Observable<any> {
-      const url = `http://127.0.0.1:8080/api/v1/trainings/${_id}`;
+      const url = `https://api.inferconautomation.online/api/v1/trainings/${_id}`;
       return this.http.get(url).pipe(
         map((response: any) => response.data) // Extract the 'data' property from the response
       );
@@ -33,7 +33,7 @@ getTrainingById(id: string): Observable<any> {
       return this.http.get(`${this.apiUrl}/${id}`);
     }
 SearchTrainingByTitle(q: string): Observable<any> {
-  const url = `http://127.0.0.1:8080/api/v1/trainings/search?q=${q}`;
+  const url = `https://api.inferconautomation.online/api/v1/trainings/search?q=${q}`;
   return this.http.get(url).pipe(
     map((response: any) => response.data) // Extract the 'data' property from the response
   );
