@@ -16,7 +16,7 @@ export class UploadService {
     const headers = new HttpHeaders({
       'Accept': 'application/json'
     });
-    return this.http.post('https://upload.inferconautomation.com/index.php', myFormData, { headers: headers }).pipe(
+    return this.http.post('https://upload.inferconautomation.com/upload', myFormData, { headers: headers }).pipe(
       map((response: any) => response.fileName) // Replace 'fileName' with the actual key in the response JSON
     );
   }
